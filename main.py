@@ -113,16 +113,16 @@ class PR:
         newlist = self.new_list
         for line in newlist:
             if (i == 1):
-                print("The proc waiting time is", self.proc1, " for proc with priority ", i)
+                print("The proc waiting time is 0 ms for proc with priority ", i)
                 print("Priority number ", i, " is the following:", line)
             if (i == 2):
-                print("The proc waiting time is", self.proc2, " for proc with priority ", i)
+                print("The proc waiting time is", self.proc1, " ms for proc with priority ", i)
                 print("Priority number ", i, " is the following:", line)
             if (i == 3):
-                print("The proc waiting time is", self.proc3, " for proc with priority ", i)
+                print("The proc waiting time is", self.proc2, " ms for proc with priority ", i)
                 print("Priority number ", i, " is the following:", line)
             if (i == 4):
-                print("The proc waiting time is", self.proc4, " for proc with priority ", i)
+                print("The proc waiting time is", self.proc3, " ms for proc with priority ", i)
                 print("Priority number ", i, " is the following:", line)
 
             i = i + 1
@@ -214,16 +214,16 @@ class RR:
         newlist = self.new_list
         for line in newlist:
             if(i==1):
-                print("The proc waiting time is",self.proc1," for proc with priority ",i)
+                print("The proc waiting time is 0 ms for proc with priority ",i)
                 print("Priority number ", i, " is the following:", line)
             if (i == 2):
-                print("The proc waiting time is",self.proc2," for proc with priority ",i)
+                print("The proc waiting time is",self.proc1," ms for proc with priority ",i)
                 print("Priority number ", i, " is the following:", line)
             if (i == 3):
-                print("The proc waiting time is",self.proc3," for proc with priority ",i)
+                print("The proc waiting time is",self.proc2," ms for proc with priority ",i)
                 print("Priority number ", i, " is the following:", line)
             if (i == 4):
-                print("The proc waiting time is",self.proc4," for proc with priority ",i)
+                print("The proc waiting time is",self.proc3," ms for proc with priority ",i)
                 print("Priority number ", i, " is the following:", line)
 
             i = i + 1
