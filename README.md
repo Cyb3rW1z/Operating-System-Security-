@@ -5,10 +5,10 @@ Using the input file attached, which is referred to as file.txt
 ``Algorithm PRs output:``
 
 
-![image](https://user-images.githubusercontent.com/84410099/163497034-85f62b3b-db6a-417f-a09b-210f8b711afe.png)
+<img width="533" alt="image" src="https://user-images.githubusercontent.com/84410099/163497578-5b8c2cba-74a6-42bd-8735-13c046e5debe.png">
 
 
 
 ``Algorithm RRs output:``
 
-![image](https://user-images.githubusercontent.com/84410099/163497077-d2b323f2-7d38-4166-b2f1-60c36255ab30.png)
+<img width="473" alt="image" src="https://user-images.githubusercontent.com/84410099/163497545-dbaa2c1d-c8f1-4384-a823-9d5a712bc578.png">
