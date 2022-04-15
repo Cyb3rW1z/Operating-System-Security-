@@ -1,6 +1,6 @@
 # Operating-System-Security-
 
-Using the input file attached, which is names as file.txt
+Using the input file attached, which is referred to as file.txt
 
 ``Algorithm PRs output:``
 
