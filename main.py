@@ -150,6 +150,7 @@ class RR:
     proc2=0
     proc3=0
     proc4=0
+    New_List1 = []
     with open(options[3], "r") as f:
         for line in f:
             stripped_line = line.strip()
@@ -175,8 +176,7 @@ class RR:
                     break
                 if (self.list_of_lists[i][0] == 'proc'):
                     self.total_bursts = self.total_bursts + int(self.list_of_lists[k][j])
-                    #print("proc with priority # ", self.list_of_lists[i][1], "Burst =", self.list_of_lists[k][j])
-                    #print("Total Bursts =", self.total_bursts)
+                    self.New_List1.append(self.list_of_lists[k][j])
                     j = j + 1
             k = k + 1
             i = i + 1
@@ -216,25 +216,24 @@ class RR:
         self.proc4=self.proc4+self.proc3
         return
     def R_queue(self):
-        i=1
-        j = 0
-        newlist = []
-        newlist = self.new_list
-        for line in newlist:
-            if(i==1):
-                print("The proc waiting time is 0 ms for proc with number ",i)
-                print("Priority number ", i, " is the following:", line)
-            if (i == 2):
-                print("The proc waiting time is",self.proc1," ms for proc with number ",i)
-                print("Priority number ", i, " is the following:", line)
-            if (i == 3):
-                print("The proc waiting time is",self.proc2," ms for proc with number ",i)
-                print("Priority number ", i, " is the following:", line)
-            if (i == 4):
-                print("The proc waiting time is",self.proc3," ms for proc with number ",i)
-                print("Priority number ", i, " is the following:", line)
-
-            i = i + 1
+        timeslice=options[2]
+        timer=0
+        print(self.New_List1)
+        for obj in self.New_List1:
+            value=int(obj)
+            while int(value) > int(0):
+                if(int(value) == int(0)):
+                    break
+                elif (int(value) > int(timeslice)):
+                    value=int(value)-int(timeslice)
+                    obj2=int(value)+int(timer)
+                    print("( ", timer, " ->", obj2," )")
+                    timer+=int(value)
+                elif(int(value) <= int(timeslice)):
+                    obj2=int(value)+int(timer)
+                    print("( ", timer, " ->", obj2, " )" )
+                    timer+=int(value)
+                    value = int(0)
         return
 
 
@@ -261,8 +260,7 @@ if(options[1]=='PR'):
         index2+=1
         chare= chr(ord(chare) + 1)
 
-    #for line in CPU_Timeline1:
-   #     print(line)
+
 
 if(options[1]=='RR'):
     obj2 = RR()
@@ -270,10 +268,6 @@ if(options[1]=='RR'):
     print("CPU Scheduling Algo.:", options[1])
     print("Total CPU utalization time in ms = ", obj2.CPU_Utalization())
     print("Average Turn Arond time in ms =", obj2.AVG_TurnAroundTime())
-    print("The CPU Timeline will work in the following format:")
-    CPU_Timeline2=obj2.new_list
-    for line in CPU_Timeline2:
-        print(line)
     print("The Read Queue will look like:")
     obj2.Time_calc()
     obj2.R_queue()
