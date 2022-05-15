@@ -5,7 +5,7 @@ Using the input file attached, which is referred to as file.txt
 ```
 Algorithm PRs output ( we have to send a timeslice although it wont be used):
 ```
-<img width="243" alt="image" src="https://user-images.githubusercontent.com/84410099/168489110-fd8c8d27-9441-4e34-af7f-71380d4effff.png">
+<img width="2043" alt="image" src="https://user-images.githubusercontent.com/84410099/168489110-fd8c8d27-9441-4e34-af7f-71380d4effff.png">
 
 
 
@@ -15,6 +15,6 @@ Algorithm PRs output ( we have to send a timeslice although it wont be used):
 ``` 
 Algorithm RRs output:
 ```
-<img width="301" alt="image" src="https://user-images.githubusercontent.com/84410099/168489099-1f140c5b-c357-499e-94a0-6c86640e98ce.png">
+<img width="3001" alt="image" src="https://user-images.githubusercontent.com/84410099/168489099-1f140c5b-c357-499e-94a0-6c86640e98ce.png">
 
 
