@@ -12,6 +12,9 @@ class PR:
     priority3 = []
     else_pro = []
     new_list = []
+    start_time=[]
+    start_time.append(int(0))
+    startVals=0
     proc1 = 0
     proc2 = 0
     proc3 = 0
@@ -40,11 +43,15 @@ class PR:
                     break
                 if (self.list_of_lists[i][0] == 'proc'):
                     self.total_bursts = self.total_bursts + int(self.list_of_lists[k][j])
+                    self.startVals=self.startVals+int(self.list_of_lists[k][j])
                     #print("proc with priority # ", self.list_of_lists[i][1], "Burst =", self.list_of_lists[k][j])
                     #print("Total Bursts =", self.total_bursts)
                     j = j + 1
+            self.start_time.append(self.startVals)
             k = k + 1
             i = i + 1
+        self.start_time=list(set(self.start_time))
+        self.start_time.sort()
         return ( self.total_bursts/(self.total_bursts+self.total_idle))
     def AVG_TurnAroundTime(self):
         return(self.total_bursts/self.proc_count)
@@ -81,7 +88,6 @@ class PR:
             self.new_list.append(self.priority3)
         if(len(self.else_pro)):
             self.new_list.append(self.else_pro)
-
         return self.new_list
 
     def Time_calc(self):
@@ -107,26 +113,27 @@ class PR:
         return
 
     def R_queue(self):
-        i = 1
-        j = 0
-        newlist = []
-        newlist = self.new_list
+        new_listVals=[]
+        new_listVals=self.start_time
+        print(new_listVals)
+        return new_listVals
+        ''' 
+        start_time=[]
+        end_time=[]
+        end=0
+        start=0
+        start_time.append(int(start))
+        i=1
+        j=3
+        newlist=self.new_list
+        newlist.sort()
         for line in newlist:
-            if (i == 1):
-                print("The proc waiting time is 0 ms for proc with priority ", i)
-                print("Priority number ", i, " is the following:", line)
-            if (i == 2):
-                print("The proc waiting time is", self.proc1, " ms for proc with priority ", i)
-                print("Priority number ", i, " is the following:", line)
-            if (i == 3):
-                print("The proc waiting time is", self.proc2, " ms for proc with priority ", i)
-                print("Priority number ", i, " is the following:", line)
-            if (i == 4):
-                print("The proc waiting time is", self.proc3, " ms for proc with priority ", i)
-                print("Priority number ", i, " is the following:", line)
-
-            i = i + 1
-        return
+            j=3
+            for val in range(3,len(line)):
+                start=start+int(val)
+                #end=end+line[j]
+            start_time.append(start)
+'''
 
 class RR:
     proc_count = 0
@@ -149,6 +156,7 @@ class RR:
             line_list = stripped_line.split()
             list_of_lists.append(line_list)
     def CPU_Utalization(self):
+        timeslice=options[2]
         j = 3
         k = 0
         i = 0
@@ -214,16 +222,16 @@ class RR:
         newlist = self.new_list
         for line in newlist:
             if(i==1):
-                print("The proc waiting time is 0 ms for proc with priority ",i)
+                print("The proc waiting time is 0 ms for proc with number ",i)
                 print("Priority number ", i, " is the following:", line)
             if (i == 2):
-                print("The proc waiting time is",self.proc1," ms for proc with priority ",i)
+                print("The proc waiting time is",self.proc1," ms for proc with number ",i)
                 print("Priority number ", i, " is the following:", line)
             if (i == 3):
-                print("The proc waiting time is",self.proc2," ms for proc with priority ",i)
+                print("The proc waiting time is",self.proc2," ms for proc with number ",i)
                 print("Priority number ", i, " is the following:", line)
             if (i == 4):
-                print("The proc waiting time is",self.proc3," ms for proc with priority ",i)
+                print("The proc waiting time is",self.proc3," ms for proc with number ",i)
                 print("Priority number ", i, " is the following:", line)
 
             i = i + 1
@@ -232,7 +240,7 @@ class RR:
 
 if(options[1]=='PR'):
     obj1=PR()
-    print("Input File Name: ",options[3])
+    print("Input File Name: ",options[2])
     print("CPU Scheduling Algo.:",options[1])
     print("Total CPU utalization time in ms = ",obj1.CPU_Utalization())
     print("Average Turn Arond time in ms =" ,obj1.AVG_TurnAroundTime())
@@ -240,8 +248,21 @@ if(options[1]=='PR'):
     obj1.R_queue()
     print("The CPU Timeline will work in the following format:")
     CPU_Timeline1=obj1.new_list
-    for line in CPU_Timeline1:
-        print(line)
+    chare = 'a'
+    obj1.start_time=list(set(obj1.start_time))
+    obj1.start_time.sort()
+    index = 0
+    index2=1
+    for val in obj1.start_time:
+        if(int(index2)>=len(obj1.start_time) or int(index)>=len(obj1.start_time)):
+            break
+        print(' %c(%d->%d) ' % (chare, obj1.start_time[index],obj1.start_time[index2]))
+        index += 1
+        index2+=1
+        chare= chr(ord(chare) + 1)
+
+    #for line in CPU_Timeline1:
+   #     print(line)
 
 if(options[1]=='RR'):
     obj2 = RR()
