@@ -2,13 +2,19 @@
 
 Using the input file attached, which is referred to as file.txt
 
-``Algorithm PRs output:``
+```
+Algorithm PRs output ( we have to send a timeslice although it wont be used):
+```
+<img width="243" alt="image" src="https://user-images.githubusercontent.com/84410099/168489110-fd8c8d27-9441-4e34-af7f-71380d4effff.png">
 
 
-<img width="533" alt="image" src="https://user-images.githubusercontent.com/84410099/163497578-5b8c2cba-74a6-42bd-8735-13c046e5debe.png">
 
 
 
-``Algorithm RRs output:``
 
-<img width="473" alt="image" src="https://user-images.githubusercontent.com/84410099/163497545-dbaa2c1d-c8f1-4384-a823-9d5a712bc578.png">
+``` 
+Algorithm RRs output:
+```
+<img width="301" alt="image" src="https://user-images.githubusercontent.com/84410099/168489099-1f140c5b-c357-499e-94a0-6c86640e98ce.png">
+
+
